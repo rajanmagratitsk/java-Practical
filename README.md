@@ -1,1 +1,1 @@
-# this is the menubar example of using java applications
+# these are the java programs
