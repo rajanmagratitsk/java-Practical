@@ -1,6 +1,6 @@
 public class MethodOverloading {
-    int add(int n){
-        return n;
+    void add(int n){
+        System.out.println("n is:"+n);
     }
     int add(int n , int a){
         return n+a;
@@ -11,11 +11,10 @@ public class MethodOverloading {
     }
     public static void main(String[] args) {
         MethodOverloading obj=new MethodOverloading();
-        int result1=obj.add(5);
-        int result2=obj.add(5,6);
-
+       obj.add(3);
+      System.out.println(obj.add(3, 4));
         obj.display();
-        System.out.println(result1+" "+result2);
+      
 
     }
 }
