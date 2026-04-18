@@ -22,7 +22,7 @@ int b;
     public static void main(String[] args) {
         ConstructorOverloading cog=new ConstructorOverloading();
         ConstructorOverloading cog1=new ConstructorOverloading(1, "rajan");
-        ConstructorOverloading cog2=new ConstructorOverloading(1, "nichyo", 4);
+        ConstructorOverloading cog2=new ConstructorOverloading(1, "nichyo", 27);
         cog.display();
         cog1.display();
         cog2.display();
