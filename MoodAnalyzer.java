@@ -29,13 +29,13 @@ public class MoodAnalyzer {
         String mood;
 
         if (speed > 20 && exclam > 0) {
-            mood = "🔥 Excited / Energetic";
+            mood = " Excited / Energetic";
         } else if (question > 1) {
-            mood = "🤔 Curious / Confused";
+            mood = " Curious / Confused";
         } else if (speed < 10) {
-            mood = "😴 Calm / Slow / Thoughtful";
+            mood = " Calm / Slow / Thoughtful";
         } else {
-            mood = "🙂 Neutral";
+            mood = " Neutral";
         }
 
         // Output
