@@ -1,0 +1,117 @@
+// Node class for Doubly Linked List
+class Node {
+    int data;
+    Node next;
+    Node prev;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+// Circular Queue using Doubly Linked List
+public class CircularQueueDLL {
+    private Node front, rear;
+    private int size;
+
+    // Constructor
+    public CircularQueuedll() {
+        front = rear = null;
+        size = 0;
+    }
+
+    // Enqueue operation
+    public void enqueue(int data) {
+        Node newNode = new Node(data);
+        if (isEmpty()) {
+            front = rear = newNode;
+            front.next = front; // circular link
+            front.prev = front;
+        } else {
+            newNode.prev = rear;
+            newNode.next = front;
+            rear.next = newNode;
+            front.prev = newNode;
+            rear = newNode;
+        }
+        size++;
+        System.out.println(data + " enqueued.");
+    }
+
+    // Dequeue operation
+    public int dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty! Cannot dequeue.");
+            return -1;
+        }
+        int item = front.data;
+        if (front == rear) { // only one node
+            front = rear = null;
+        } else {
+            front = front.next;
+            front.prev = rear;
+            rear.next = front;
+        }
+        size--;
+        return item;
+    }
+
+    // Peek front element
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty!");
+            return -1;
+        }
+        return front.data;
+    }
+
+    // Check if queue is empty
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    // Get size
+    public int getSize() {
+        return size;
+    }
+
+    // Display queue elements
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty!");
+            return;
+        }
+        System.out.print("Queue elements: ");
+        Node temp = front;
+        for (int i = 0; i < size; i++) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
+    // Main method to test
+    public static void main(String[] args) {
+        CircularQueueDLL cq = new CircularQueueDLL();
+
+        cq.enqueue(10);
+        cq.enqueue(20);
+        cq.enqueue(30);
+        cq.enqueue(40);
+
+        cq.display();
+
+        System.out.println("Dequeued: " + cq.dequeue());
+        System.out.println("Dequeued: " + cq.dequeue());
+
+        cq.display();
+
+        cq.enqueue(50);
+        cq.enqueue(60);
+
+        cq.display();
+        System.out.println("Front element: " + cq.peek());
+    }
+}
